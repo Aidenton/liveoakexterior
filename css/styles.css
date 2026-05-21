@@ -775,6 +775,7 @@ section { padding: 5rem 0; }
 }
 
 .form-group textarea { resize: vertical; min-height: 120px; }
+.form-group input[type="date"] { appearance: auto; -webkit-appearance: auto; }
 
 .form-submit { margin-top: 0.5rem; }
 .form-submit .btn-primary { width: 100%; font-size: 1.05rem; padding: 1rem; }

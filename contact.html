@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/styles.css?v=9">
+  <link rel="stylesheet" href="/css/styles.css?v=10">
 </head>
 <body>
 
@@ -150,6 +150,11 @@
           <!-- Right: Form -->
           <div class="contact-form-wrap fade-in" style="--delay:0.15s">
 
+            <div style="margin-bottom:2rem;">
+              <h2 style="font-size:1.5rem;color:var(--evergreen);margin-bottom:0.5rem;">Book a Free Quote Visit</h2>
+              <p style="color:var(--text-muted);font-size:0.95rem;">Pick a couple of days that work for you. I'll text or email back same day to lock it in.</p>
+            </div>
+
             <!-- Success message (shown when ?success=true is in URL) -->
             <div class="form-success" id="form-success">
               <p style="font-size:1.5rem;margin-bottom:0.5rem;">✅</p>
@@ -165,7 +170,7 @@
               <!-- Replace d1f78545-7350-4e9e-9c2f-f897ede82945 with your actual key from web3forms.com -->
               <input type="hidden" name="access_key" value="d1f78545-7350-4e9e-9c2f-f897ede82945">
               <input type="hidden" name="subject" value="New Quote Request - Live Oak Exterior">
-              <input type="hidden" name="redirect" value="https://liveoakexterior.com/contact.html?success=true">
+              <input type="hidden" name="redirect" value="https://liveoakexterior.com/thank-you.html">
               <!-- Honeypot field - do not remove, prevents spam -->
               <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -192,15 +197,29 @@
               <div class="form-group">
                 <label for="service">Service Type *</label>
                 <select id="service" name="service" required>
-                  <option value="" disabled selected>Select a Service</option>
+                  <option value="" disabled selected>Select a service</option>
                   <option value="Residential Window Cleaning">Residential Window Cleaning</option>
                   <option value="Commercial Window Cleaning">Commercial Window Cleaning</option>
-                  <option value="Not Sure / Other">Not Sure / Other</option>
+                  <option value="Soft Washing">Soft Washing</option>
+                  <option value="Driveway and Concrete Cleaning">Driveway and Concrete Cleaning</option>
+                  <option value="Gutter Cleaning">Gutter Cleaning</option>
+                  <option value="Solar Panel Cleaning">Solar Panel Cleaning</option>
+                  <option value="Not sure, help me figure it out">Not sure, help me figure it out</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="best-time">Best Time to Contact</label>
+                <label for="preferred-date">Preferred Date for Quote Visit *</label>
+                <input type="date" id="preferred-date" name="preferred_date" required>
+              </div>
+
+              <div class="form-group">
+                <label for="backup-date">Backup Date in case the first one doesn't work *</label>
+                <input type="date" id="backup-date" name="backup_date" required>
+              </div>
+
+              <div class="form-group">
+                <label for="best-time">Best Time of Day</label>
                 <select id="best-time" name="best_time">
                   <option value="Anytime" selected>Anytime</option>
                   <option value="Morning (8am-12pm)">Morning (8am-12pm)</option>
@@ -210,15 +229,32 @@
               </div>
 
               <div class="form-group">
+                <label for="referral">How did you hear about us?</label>
+                <select id="referral" name="referral">
+                  <option value="" disabled selected>Select one</option>
+                  <option value="Door knock">Door knock</option>
+                  <option value="Referral from a neighbor or friend">Referral from a neighbor or friend</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Yard sign">Yard sign</option>
+                  <option value="Social media">Social media</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
                 <label for="message">Message / Additional Info</label>
                 <textarea id="message" name="message" rows="4" placeholder="Anything else we should know? Number of windows, stories, specific concerns..."></textarea>
               </div>
 
               <div class="form-submit">
-                <button type="submit" class="btn-primary">Send Quote Request</button>
+                <button type="submit" class="btn-primary">Request My Quote Visit</button>
               </div>
+              <p style="text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:0.75rem;">We usually respond within a few hours, same day.</p>
 
             </form>
+
+            <p style="text-align:center;font-size:0.9rem;margin-top:1.25rem;">Prefer to text? <a href="sms:+19108599959" style="color:var(--evergreen);font-weight:600;">Tap here to text (910) 859-9959.</a></p>
+
           </div>
 
         </div>
