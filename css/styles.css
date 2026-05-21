@@ -1,5 +1,5 @@
 /* =========================================================
-   Live Oak Exterior — styles.css
+   Live Oak Exterior - styles.css
    ========================================================= */
 
 /* Google Fonts */
@@ -332,7 +332,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* =========================================================
-   Sections — Base
+   Sections - Base
    ========================================================= */
 section { padding: 5rem 0; }
 
@@ -1018,7 +1018,7 @@ section { padding: 5rem 0; }
 }
 
 /* =========================================================
-   Services Page — Detail Sections
+   Services Page - Detail Sections
    ========================================================= */
 .service-detail { }
 
@@ -1161,7 +1161,7 @@ section { padding: 5rem 0; }
 }
 
 /* =========================================================
-   Mobile — 768px
+   Mobile - 768px
    ========================================================= */
 @media (max-width: 768px) {
   body { padding-top: var(--header-height); }
@@ -1227,7 +1227,7 @@ section { padding: 5rem 0; }
 }
 
 /* =========================================================
-   Mobile — 480px
+   Mobile - 480px
    ========================================================= */
 @media (max-width: 480px) {
   .section-title { font-size: 2.2rem; }

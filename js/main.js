@@ -1,4 +1,4 @@
-/* Live Oak Exterior — main.js */
+/* Live Oak Exterior - main.js */
 
 (function () {
   'use strict';
