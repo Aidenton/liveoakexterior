@@ -779,6 +779,8 @@ section { padding: 5rem 0; }
 
 .form-submit { margin-top: 0.5rem; }
 .form-submit .btn-primary { width: 100%; font-size: 1.05rem; padding: 1rem; }
+.field-invalid { border-color: #c0392b !important; }
+.field-error { color: #c0392b; font-size: 0.85rem; margin-top: 0.35rem; display: block; }
 
 .form-success {
   display: none;

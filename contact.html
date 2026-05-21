@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/styles.css?v=10">
+  <link rel="stylesheet" href="/css/styles.css?v=11">
 </head>
 <body>
 
@@ -166,6 +166,7 @@
               method="POST"
               class="contact-form"
               id="contact-form"
+              novalidate
             >
               <!-- Replace d1f78545-7350-4e9e-9c2f-f897ede82945 with your actual key from web3forms.com -->
               <input type="hidden" name="access_key" value="d1f78545-7350-4e9e-9c2f-f897ede82945">
@@ -181,7 +182,7 @@
 
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" placeholder="(910) 000-0000" required>
+                <input type="tel" id="phone" name="phone" placeholder="(910) 000-0000" inputmode="tel" required>
               </div>
 
               <div class="form-group">
@@ -198,8 +199,7 @@
                 <label for="service">Service Type *</label>
                 <select id="service" name="service" required>
                   <option value="" disabled selected>Select a service</option>
-                  <option value="Residential Window Cleaning">Residential Window Cleaning</option>
-                  <option value="Commercial Window Cleaning">Commercial Window Cleaning</option>
+                  <option value="Window Cleaning">Window Cleaning</option>
                   <option value="Soft Washing">Soft Washing</option>
                   <option value="Driveway and Concrete Cleaning">Driveway and Concrete Cleaning</option>
                   <option value="Gutter Cleaning">Gutter Cleaning</option>
@@ -309,5 +309,82 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    // Set date min to today so the picker opens on a sensible date
+    var today = new Date().toISOString().split('T')[0];
+    form.querySelectorAll('input[type="date"]').forEach(function (el) {
+      el.min = today;
+    });
+
+    // Clear error state when a field is changed
+    form.addEventListener('input', function (e) {
+      var field = e.target;
+      field.classList.remove('field-invalid');
+      var err = field.closest('.form-group') && field.closest('.form-group').querySelector('.field-error');
+      if (err) err.remove();
+    }, true);
+
+    form.addEventListener('change', function (e) {
+      var field = e.target;
+      field.classList.remove('field-invalid');
+      var err = field.closest('.form-group') && field.closest('.form-group').querySelector('.field-error');
+      if (err) err.remove();
+    }, true);
+
+    form.addEventListener('submit', function (e) {
+      // Clear any previous errors
+      form.querySelectorAll('.field-error').forEach(function (el) { el.remove(); });
+      form.querySelectorAll('.field-invalid').forEach(function (el) { el.classList.remove('field-invalid'); });
+
+      var valid = true;
+
+      function showError(el, msg) {
+        valid = false;
+        el.classList.add('field-invalid');
+        var err = document.createElement('span');
+        err.className = 'field-error';
+        err.textContent = msg || 'Please fill this out.';
+        el.closest('.form-group').appendChild(err);
+      }
+
+      // Check each required field by id
+      var requiredIds = ['name', 'phone', 'email', 'address', 'service', 'preferred-date', 'backup-date'];
+      requiredIds.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        if (!el.value.trim()) showError(el, 'Please fill this out.');
+      });
+
+      // Basic email format check (only if something was typed)
+      var emailEl = document.getElementById('email');
+      if (emailEl && emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+        showError(emailEl, 'Please enter a valid email address.');
+      }
+
+      if (!valid) {
+        e.preventDefault();
+        var first = form.querySelector('.field-invalid');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Trim whitespace from text fields before submit
+      form.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"]').forEach(function (el) {
+        el.value = el.value.trim();
+      });
+
+      // Disable button to prevent double-submit
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
