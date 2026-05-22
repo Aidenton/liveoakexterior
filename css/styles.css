@@ -1244,3 +1244,94 @@ section { padding: 5rem 0; }
 
   .ba-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   Header Phone Link
+   ========================================================= */
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cream);
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+.header-phone:hover { color: var(--cream-dark); }
+.header-phone svg { flex-shrink: 0; fill: currentColor; }
+
+/* =========================================================
+   Service Area List (SEO-structured replacement for area-tag spans)
+   ========================================================= */
+.service-area-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+.service-area-list li {
+  background: rgba(252,244,181,0.12);
+  border: 1px solid rgba(252,244,181,0.3);
+  color: var(--cream);
+  border-radius: 40px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.service-area-list--light li {
+  background: rgba(15,61,51,0.07);
+  border-color: rgba(15,61,51,0.2);
+  color: var(--evergreen);
+}
+
+/* =========================================================
+   Mobile Sticky CTA Bar
+   ========================================================= */
+.mobile-cta-bar { display: none; }
+
+@media (max-width: 768px) {
+  .header-phone-text { display: none; }
+  .header-phone {
+    min-width: 36px;
+    min-height: 36px;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .mobile-cta-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 999;
+    box-shadow: 0 -3px 16px rgba(0,0,0,0.18);
+  }
+  .mobile-cta-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    gap: 0.35rem;
+    text-decoration: none;
+  }
+  .mobile-cta-bar .bar-call {
+    background: var(--cream);
+    color: var(--evergreen);
+  }
+  .mobile-cta-bar .bar-quote {
+    background: var(--evergreen-dark);
+    color: var(--cream);
+    border-left: 2px solid rgba(252,244,181,0.25);
+  }
+  body { padding-bottom: 60px; }
+}
