@@ -1018,7 +1018,44 @@ section { padding: 5rem 0; }
 }
 
 /* =========================================================
-   Services Page - Detail Sections
+   Services Page - Consolidated List
+   ========================================================= */
+.services-list {
+  border-top: 1px solid rgba(15,61,51,0.12);
+}
+
+.service-entry {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(15,61,51,0.12);
+  position: relative;
+}
+
+.service-entry h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--evergreen);
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.service-entry p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.services-guarantee {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* =========================================================
+   Services Page - Detail Sections (legacy, kept for reference)
    ========================================================= */
 .service-detail { }
 
