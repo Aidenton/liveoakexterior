@@ -49,30 +49,6 @@
   }
 
   /* --------------------------------------------------
-     3. Fade-in on scroll (IntersectionObserver)
-  -------------------------------------------------- */
-  const fadeEls = document.querySelectorAll('.fade-in');
-
-  if (fadeEls.length && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    fadeEls.forEach(function (el) { observer.observe(el); });
-  } else {
-    // Fallback: make all visible immediately
-    fadeEls.forEach(function (el) { el.classList.add('visible'); });
-  }
-
-  /* --------------------------------------------------
      4. Active nav link highlighting
   -------------------------------------------------- */
   (function highlightNav() {
